@@ -40,14 +40,14 @@ Pila* crea(int initialSize){
   s->marker = 0;
   s->contenuto = new int[initialSize];
   return s;
-  cout << "Fatto" << endl;
+
 }
 
 void distruggi(Pila *s){
   cout << "Eseguendo distruggi..." << endl;
   delete [] (s->contenuto);
   delete s;
-  cout << "Fatto" << endl;
+
 }
 
 void cresci(Pila *s, int increment){
@@ -59,7 +59,7 @@ void cresci(Pila *s, int increment){
   }
   delete [] (s->contenuto);
   s->contenuto = temp;
-  cout << "Fatto" << endl;
+
 }
 
 void inserisci(Pila *s, int k){
@@ -69,7 +69,7 @@ void inserisci(Pila *s, int k){
   }
   s->contenuto[s->marker] = k;
   s->marker++;
-  cout << "Fatto" << endl;
+
 }
 
 int estrai(Pila *s){
@@ -81,10 +81,11 @@ int estrai(Pila *s){
   #endif
 
   return s->contenuto[--(s->marker)];
-  cout << "Fatto" << endl;
 }
 
 void stampa(Pila *s){
+  cout << "===============" << endl;
+
   cout << "===============" << endl;
 
 }
@@ -95,5 +96,6 @@ Pila* copia(Pila *from){
   for(int k=0; k< from->marker; k++){
     to->contenuto[k] = from->contenuto[k];
   }
-
+  to->marker = from->marker;
+  return to;
 }
