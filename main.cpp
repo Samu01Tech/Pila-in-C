@@ -15,9 +15,32 @@ Pila* crea(int initialSize);
 void distruggi(Pila *s);
 void cresci(Pila *s, int increment);
 void inserisci(Pila *s, int k);
-void stampa(Pila *s);
-Pila* copia(Pila *from){
+int estrai(Pila *s);
+void stampaStato(Pila *s);
+Pila* copia(Pila *from);
 
+//posso modificarle in
+
+struct Pila {
+  int size;
+  int defaultGrowthSize;
+  int marker;
+  int* contenuto;
+  //aggiungo qui
+  int estrai(){
+    cout << "Eseguendo estrai..." << endl;
+    assert(this->marker>0);
+    return this->contenuto[--(this->marker)];
+  };
+};
+
+Pila* crea(int initialSize);
+void distruggi(Pila *s);
+void cresci(Pila *s, int increment);
+void inserisci(Pila *s, int k);
+//int estrai(Pila *s); -- Vecchia versione
+void stampaStato(Pila *s);
+Pila* copia(Pila *from);
 
 int main() {
   Pila *s = crea(5);
@@ -83,7 +106,7 @@ int estrai(Pila *s){
   return s->contenuto[--(s->marker)];
 }
 
-void stampa(Pila *s){
+void stampaStato(Pila *s){
   cout << "===============" << endl;
 
   cout << "===============" << endl;
