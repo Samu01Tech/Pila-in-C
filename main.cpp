@@ -44,9 +44,16 @@ void cresci(Pila *s, int increment){
 }
 
 void inserisci(Pila *s, int k){
+  cout << "Eseguendo inserisci..." << endl;
   if(s->size == s->marker){
     cresci(s, s->defaultGrowthSize);
   }
   s->contenuto[s->marker] = k;
   s->marker++;
+}
+
+int estrai(Pila *s){
+  cout << "Eseguendo estrai..." << endl;
+  assert(s->marker>0);
+  return s->contenuto[--(s->marker)];
 }
