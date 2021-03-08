@@ -20,7 +20,7 @@ void stampaStato(Pila *s);
 Pila* copia(Pila *from);
 
 //posso modificarle in
-
+/*
 struct Pila {
   int size;
   int defaultGrowthSize;
@@ -46,6 +46,7 @@ Pila* copia(Pila *from);
   int Pila::estrai(){
     //codice
   }
+*/
 /*
 Le altre funzioni possono essere implementate di conseguenza
 */
@@ -57,6 +58,14 @@ struct Pila{
   //funzioni accessibili
   private:
   //variabili e funzioni nascoste
+}
+*/
+//CLASSI IN C
+/*
+class Pila{
+  //variabili e funzioni nascoste
+  public:
+  //funzioni accessibili
 }
 */
 int main() {
