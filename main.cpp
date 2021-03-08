@@ -12,9 +12,11 @@ struct Pila {
 
 Pila* crea(int initialSize);
 void distruggi(Pila *s);
+void cresci(Pila *s, int increment);
+void inserisci(Pila *s, int k);
 
 int main() {
-  
+  return 0;
 }
 
 Pila* crea(int initialSize){
@@ -31,3 +33,20 @@ void distruggi(Pila *s){
   delete s;
 }
 
+void cresci(Pila *s, int increment){
+  s->size += increment;
+  int* temp = new int[s->size];
+  for(int k=0; k < s->marker; k++){
+    temp[k] = s->contenuto[k];
+  }
+  delete [] (s->contenuto);
+  s->contenuto = temp;
+}
+
+void inserisci(Pila *s, int k){
+  if(s->size == s->marker){
+    cresci(s, s->defaultGrowthSize);
+  }
+  s->contenuto[s->marker] = k;
+  s->marker++;
+}
