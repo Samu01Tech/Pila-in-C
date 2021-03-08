@@ -31,6 +31,7 @@ struct Pila {
     cout << "Eseguendo estrai..." << endl;
     assert(this->marker>0);
     return this->contenuto[--(this->marker)];
+    //il this può essere omesso
   };
 };
 
@@ -41,7 +42,23 @@ void inserisci(Pila *s, int k);
 //int estrai(Pila *s); -- Vecchia versione
 void stampaStato(Pila *s);
 Pila* copia(Pila *from);
+  //anche con le funzioni separate
+  int Pila::estrai(){
+    //codice
+  }
+/*
+Le altre funzioni possono essere implementate di conseguenza
+*/
 
+//INFORMATION HIDING
+/*
+Non devo lasciare visibile non più di quello che è necessario
+struct Pila{
+  //funzioni accessibili
+  private:
+  //variabili e funzioni nascoste
+}
+*/
 int main() {
   Pila *s = crea(5);
   cout << "s";
@@ -51,7 +68,8 @@ int main() {
   }
   cout << "s";
   stampaStato(s);
-
+  //main nuovo con this
+  cout << s->estrai() << endl;
   return 0;
 }
 
